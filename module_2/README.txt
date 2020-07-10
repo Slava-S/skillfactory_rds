@@ -1,57 +1,57 @@
-Вас пригласили поучаствовать в одном из проектов UNICEF — международного подразделения ООН, 
-чья миссия состоит в повышении уровня благополучия детей по всему миру. 
-Суть проекта — отследить влияние условий жизни учащихся в возрасте от 15 до 22 лет на их успеваемость по математике,
-чтобы на ранней стадии выявлять студентов, находящихся в группе риска.
+You have been invited to participate in one of the UNICEF projects - the international division of the UN,
+whose mission is to improve the well-being of children around the world.
+The essence of the project is to track the impact of living conditions of students aged 15 to 22 years on their performance in mathematics,
+to identify students at risk at an early stage.
 
-И сделать это можно с помощью модели, которая предсказывала бы результаты госэкзамена по математике для каждого ученика школы.
-Чтобы определиться с параметрами будущей модели, проведём разведывательный анализ данных и составим отчёт по его результатам. 
+And this can be done with the help of a model that would predict the results of the state exam in mathematics for each student in the school.
+To determine the parameters of the future model, we will conduct a reconnaissance analysis of the data and compile a report on its results. 
 
-Разведывательный анализ данных (EDA)
-Цели:
--Сформулировать предположения и гипотезы для дальнейшего построения модели.
--Проверить качество данных и очистить их, если это необходимо.
--Определиться с параметрами модели.
+Exploratory data analysis (EDA)
+Objectives:
+- Formulate assumptions and hypotheses for the further construction of the model.
+-Check data quality and clean it if necessary.
+- Decide on the parameters of the model.
 
-Описание датасета
-Переменные, которые содержит датасет:
+Description of dataset
+The variables that the dataset contains are:
 
-1 school — аббревиатура школы, в которой учится ученик
-2 sex — пол ученика ('F' - женский, 'M' - мужской)
-3 age — возраст ученика (от 15 до 22)
-4 address — тип адреса ученика ('U' - городской, 'R' - за городом)
-5 famsize — размер семьи('LE3' <= 3, 'GT3' >3)
-6 Pstatus — статус совместного жилья родителей ('T' - живут вместе 'A' - раздельно)
-7 Medu — образование матери (0 - нет, 1 - 4 класса, 2 - 5-9 классы, 3 - среднее специальное или 11 классов, 4 - высшее)
-8 Fedu — образование отца (0 - нет, 1 - 4 класса, 2 - 5-9 классы, 3 - среднее специальное или 11 классов, 4 - высшее)
-9 Mjob — работа матери ('teacher' - учитель, 'health' - сфера здравоохранения, 'services' - гос служба, 'at_home' - не работает, 'other' - другое)
-10 Fjob — работа отца ('teacher' - учитель, 'health' - сфера здравоохранения, 'services' - гос служба, 'at_home' - не работает, 'other' - другое)
-11 reason — причина выбора школы ('home' - близость к дому, 'reputation' - репутация школы, 'course' - образовательная программа, 'other' - другое)
-12 guardian — опекун ('mother' - мать, 'father' - отец, 'other' - другое)
-13 traveltime — время в пути до школы (1 - <15 мин., 2 - 15-30 мин., 3 - 30-60 мин., 4 - >60 мин.)
-14 studytime — время на учёбу помимо школы в неделю (1 - <2 часов, 2 - 2-5 часов, 3 - 5-10 часов, 4 - >10 часов)
-15 failures — количество внеучебных неудач (n, если 1<=n<=3, иначе 0)
-16 schoolsup — дополнительная образовательная поддержка (yes или no)
-17 famsup — семейная образовательная поддержка (yes или no)
-18 paid — дополнительные платные занятия по математике (yes или no)
-19 activities — дополнительные внеучебные занятия (yes или no)
-20 nursery — посещал детский сад (yes или no)
-21 higher — хочет получить высшее образование (yes или no)
-22 internet — наличие интернета дома (yes или no)
-23 romantic — в романтических отношениях (yes или no)
-24 famrel — семейные отношения (от 1 - очень плохо до 5 - очень хорошо)
-25 freetime — свободное время после школы (от 1 - очень мало до 5 - очень мого)
-26 goout — проведение времени с друзьями (от 1 - очень мало до 5 - очень много)
-27 health — текущее состояние здоровья (от 1 - очень плохо до 5 - очень хорошо)
-28 absences — количество пропущенных занятий
-29 score — баллы по госэкзамену по математике
+1 school - the abbreviation of the school in which the student is studying
+2 sex - student's gender ('F' - female, 'M' - male)
+3 age - student's age (from 15 to 22)
+4 address - student's address type ('U' - urban, 'R' - outside the city)
+5 famsize - family size ('LE3' <= 3, 'GT3'> 3)
+6 Pstatus - open housing status of parents ('T' - live together 'A' - separately)
+7 Medu - mother's education (0 - no, 1 - 4 classes, 2 - 5-9 classes, 3 - secondary special or 11 classes, 4 - higher)
+8 Fedu - father's education (0 - no, 1 - 4 classes, 2 - 5-9 classes, 3 - secondary special or 11 classes, 4 - higher)
+9 Mjob - mother’s work (“teacher” - teacher, “health” - the health sector, “services” - public service, “at_home” - does not work, “other” - other)
+10 Fjob - father's work ('teacher' - teacher, 'health' - healthcare, 'services' - public service, 'at_home' - not working, 'other' - other)
+11 reason - the reason for choosing a school (“home” - proximity to home, “reputation” - school reputation, “course” - educational program, “other” - other)
+12 guardian - guardian ("mother" - mother, "father" - father, "other" - other)
+13 traveltime - travel time to school (1 - <15 min., 2 - 15-30 min., 3 - 30-60 min., 4 -> 60 min.)
+14 studytime - time to study in addition to school per week (1 - <2 hours, 2 - 2-5 hours, 3 - 5-10 hours, 4 -> 10 hours)
+15 failures - the number of extracurricular failures (n if 1 <= n <= 3, otherwise 0)
+16 schoolsup - additional educational support (yes or no)
+17 famsup - family educational support (yes or no)
+18 paid - additional paid classes in mathematics (yes or no)
+19 activities - extracurricular activities (yes or no)
+20 nursery - attended kindergarten (yes or no)
+21 higher - wants to get a higher education (yes or no)
+22 internet - Internet at home (yes or no)
+23 romantic - in a romantic relationship (yes or no)
+24 famrel - family relationships (from 1 - very poor to 5 - very good)
+25 freetime - free time after school (from 1 - very little to 5 - very much)
+26 goout - spending time with friends (from 1 - very little to 5 - very much)
+27 health - current state of health (from 1 - very poor to 5 - very good)
+28 absences - the number of missed classes
+29 score - math exam scores
 
-Этапы работы над проектом:
+Stages of the project:
 
-1.Проведём первичную обработку данных.
-2.Оцениим количество уникальных значений для категориальных переменных и преобразуем их.
-3.Оценим количество уникальных значений для номинативных переменных и преобразуем их.
-4.Посмотрим на распределение признака для числовых переменных, устраним выбросы.
-5.Проведём корреляционный анализ количественных переменных
-6.Отберём не коррелирующие переменные.
-7.Проанализируем номинативные переменные и устраним те, которые не влияют на предсказываемую величину (в нашем случае — на переменную score).
-8.Сформулируем выводы относительно качества данных и тех переменных, которые будут использоваться в дальнейшем построении модели.
+1. We carry out the initial data processing.
+2. Let us estimate the number of unique values ​​for categorical variables and transform them.
+3. Let us estimate the number of unique values ​​for nominative variables and transform them.
+4.Let's look at the distribution of the trait for numerical variables, eliminate outliers.
+5. Conduct a correlation analysis of quantitative variables
+6. Select non-correlating variables.
+7. Let us analyze the nominative variables and eliminate those that do not affect the predicted value (in our case, the score variable).
+8. Let us formulate conclusions regarding the quality of the data and those variables that will be used in the further construction of the model.
