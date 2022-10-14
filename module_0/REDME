@@ -1,13 +1,26 @@
 Game "Guess A Number!"
 
+Description:
+
+  Guess the number guessed by the computer in the minimum number of attempts.
+
+
 Condition:
 
-The computer guesses an integer from 0 to 100, and we need to guess it. By “guessing,” of course, is meant “writing a program that guesses a number.”
+- The computer guesses an integer from 0 to 100, and we need to guess it. By “guessing,” of course, is meant “writing a program that guesses a   number.”
+- The algorithm takes into account information about whether the random number is greater or less than what we need.
+
+
+Quality metric:
+
+  The results are evaluated by the average number of attempts at 1000 repetitions
+
 
 Decision:
 
-With each attempt, we will halve the range of finding the desired number by half.
+  With each attempt, we will halve the range of finding the desired number by half.
+
 
 Result:
 
-Our algorithm guesses the number on average in 5 attempts.
+  Our algorithm guesses the number on average in 5 attempts.
